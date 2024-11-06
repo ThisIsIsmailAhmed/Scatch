@@ -14,7 +14,8 @@ module.exports.registerUser = async (req, res) => {
     if(user){
       dbgr("user already exists")
       res.status(401).send("you already have an account");
-    }else{try{
+    }else{
+      try{
       await auth_schema.validateAsync({ fullname, email, password })
       let hashedPass = await passHash(password, 10)
       let registeredUser = await userModel.create({

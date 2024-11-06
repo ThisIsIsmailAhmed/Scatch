@@ -7,13 +7,17 @@ const dbgr = require('debug')('development:login')
 module.exports.loginController = async (req, res) => {
    let {email, password} = req.body;
    let user = await userModel.findOne({email});
-   if(user){
+   if (!user) {
+    req.flash("error", "Email or Password incorrect");
+    return res.redirect("/");
+  }
+  if(user){
     try{
 let result = await bcrypt.compare(password, user.password);
    if(result){
     let token = jwt.sign({email: user.email, id: user._id}, process.env.JWT_KEY)
     res.cookie("token", token)
-    res.status(200).send("you have logged in")
+    res.redirect('/shop')
 }else{
     res.status(401).send("something went wrong")
 }
