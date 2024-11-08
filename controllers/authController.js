@@ -25,7 +25,7 @@ module.exports.registerUser = async (req, res) => {
           })
       let token = generateToken(registeredUser)    
       res.cookie("token", token)  
-      res.send(registeredUser)
+      res.redirect('/shop')
       }catch(err){
          res.status(418).send(err.details ? err.details.message : "something went wrong")
        }

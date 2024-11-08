@@ -13,6 +13,7 @@ const flash = require('connect-flash');
 const expressSession = require('express-session')
 const {isLoggedin} = require('./middlewares/isloggedin')
 const{logout} = require('./controllers/logoutController')
+
 app.use(expressSession(
     {
         resave: false,
