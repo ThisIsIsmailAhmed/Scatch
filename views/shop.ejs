@@ -38,7 +38,7 @@
             <% }else{ %>
                 <% products.forEach((product) => { %>
                     <div class="w-60 bg-[<%=product.color%>]">
-                        <div class=" flex item-center justify-between w-full h-full bg-[<%= product.bgcolor %>] object-cover">
+                        <div class=" flex item-center justify-center w-full h-full bg-[<%= product.bgcolor %>] object-cover">
                             <img class="h-[10rem]" src="data:image/jpeg;base64,<%= product.image.toString('base64') %>" alt="">
                         </div>
                         <div class="flex justify-between bg-[<%= product.panelcolor %>] text-[<%= product.textcolor %>] items-center px-4 py-4">
