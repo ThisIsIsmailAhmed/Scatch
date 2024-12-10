@@ -1,7 +1,7 @@
-const ownerModel = require('../models/owner-model');
+const ownerModel = require('../models/owner-model')
 let { passHash } = require('../utils/bcrypt_hash')
 let validator = require('../validators/owner_creation')
-let dbgr = require('debug')('development:owner-controller');
+let dbgr = require('debug')('development:owner-controller')
 
 module.exports.ownerRegistration =  async (req, res) => {
 try{
@@ -28,7 +28,7 @@ res.status(201).send(createdOwner)
 }catch(err){
   dbgr(err)
 }
-};   
+}
 
 
 
